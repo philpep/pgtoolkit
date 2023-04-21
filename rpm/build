@@ -12,7 +12,6 @@ trap teardown EXIT TERM
 
 top_srcdir=$(readlink -m $0/../..)
 cd $top_srcdir
-test -f setup.py
 
 yum_install() {
     local packages=$*

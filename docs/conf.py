@@ -11,8 +11,6 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import pathlib
-
 import pkg_resources
 
 # import sys
@@ -20,16 +18,9 @@ import pkg_resources
 
 # -- Project information -----------------------------------------------------
 
-setup_py = pathlib.Path(__file__).parent.parent / "setup.py"
-setup_vars = {"__file__": str(setup_py)}
-exec(setup_py.read_text(), setup_vars, setup_vars)
-metadatas = setup_vars["metadatas"]
-del setup_py
-del setup_vars
-
-project = metadatas["name"]
-author = metadatas["author"]
-copyright = "2018, Dalibo Labs"
+project = "pgtoolkit"
+author = "Dalibo"
+copyright = "2023, Dalibo Labs"
 
 # The full version, including alpha/beta/rc tags
 release = pkg_resources.get_distribution(project).version

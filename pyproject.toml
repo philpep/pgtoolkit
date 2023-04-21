@@ -1,6 +1,48 @@
 [build-system]
-requires = ["setuptools>=30.3.0", "wheel", "setuptools_scm"]
+# These are the assumed default build requirements from pip:
+# https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pgtoolkit"
+dynamic = ["version"]
+description = "PostgreSQL Support from Python"
+readme = "README.rst"
+license = { text = "PostgreSQL" }
+requires-python = ">=3.9"
+authors = [{ name = "Dalibo", email = "contact@dalibo.com" }]
+keywords = [
+    "pg_hba",
+    "pg_service.conf",
+    "pgpass",
+    "postgresql",
+    "postgresql.conf",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: PostgreSQL License",
+    "Topic :: Database",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3 :: Only",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/dalibo/pgtoolkit"
 
 [tool.isort]
 profile = "black"
 multi_line_output = 3
+
+[tool.setuptools.package-data]
+pgtoolkit = ["py.typed"]
+
+[tool.setuptools.packages.find]
+include = ["pgtoolkit"]
+
+[tool.setuptools_scm]
